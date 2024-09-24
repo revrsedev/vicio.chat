@@ -1,0 +1,91 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<div class="wrapper" id="archive-wrapper">
+    <div class="container" id="content" tabindex="-1">
+      <main class="site-main" id="main">
+        <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="https://www.chateagratis.chat/">
+              <span itemprop="name">Inicio</span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span> &nbsp / &nbsp;Ocio
+          </span>
+        </div>
+        <div class="row">
+          <div class="col-12 col-lg-2">
+            <img class="img-fluid img-chat" src="{% static 'images/salas/relacion.jpg' %}">
+          </div>
+          <div class="col-12 col-lg-10">
+            <h1>Chats en la categoría Ocio</h1>
+            <p>Conoce todo lo que se puede hacer en el tiempo de ocio en nuestros canales y salas por temáticas para debatir de temas de televisión, series, documentales, juegos de mesa, videojuegos, lanzamientos de cine, noticias generales del mundo y otras cuestiones en nuestros chats.</p>
+          </div>
+        </div>
+        <div class="row my-4">
+          <div class="col-lg-8 offset-lg-2">
+            <div class="panel panel-chat">
+              <div class="card-header">
+                <i class="fab fa-slack-hash"></i> Ocio
+              </div>
+              <div class="card-body">
+                <form method="POST" action="{% url 'opciones' %}">
+                    {% csrf_token %}
+                  <div class="form-group">
+                    <div class="form-group bmd-label-static">
+                      <label for="nick">Elige tu nick:</label>
+                      <input type="text" class="form-control" id="nick" name="nick" placeholder="">
+                      <small class="form-text text-muted">Si tiene el nick registrado se le solicitará la contraseña al conectar.</small>
+                    </div>
+                    <input type="hidden" name="join" value="#matojeando,#amistad,#chat">
+                  </div>
+                  <button type="submit" class="btn btn-success btn-lg btn-block active"><i class="far fa-comments"></i> Chatear</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <center>
+          <div data-aaad='true' data-aa-adunit='/22181265/CHZ_A_300v_1'></div>
+          <div data-aaad='true' data-aa-adunit='/22181265/CHZ_MOB_320v_1'></div>
+          <div data-aaad='true' data-aa-adunit='/22181265/CHZ_A_Stickyfooter'></div>
+          <div data-aaad='true' data-aa-adunit='/22181265/CHZ_MOB_Stickyfooter'></div>
+        </center>
+        <hr>
+        <h2>Salas de chat recomendadas</h2>
+            <div class="row">
+                {% for room in chat_roomsOcio %}
+            <div class="col-6 col-sm-3">
+                <div class="card">
+                    <a href="{{ room.url }}">
+                    <img class="card-img-top" src="{{ room.image.url }}" alt="{{ room.name }}">
+                    </a>
+            <div class="card-body">
+                <h5 class="card-title"><a href="{{ room.url }}"><i class="fab fa-slack-hash"></i> {{ room.name }}</a></h5>
+                <p class="card-text">{{ room.description }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<hr>
+<h2>Sub categorías de Ocio</h2>
+<div class="row">
+    {% for category in subcategoriesOcio %}
+    <div class="col-6 col-sm-3">
+        <div class="card">
+            <a href="{{ category.url }}">
+                <img class="card-img-top" src="{{ category.image.url }}">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title"><a href="{{ category.url }}"><i class="fas fa-folder-open"></i> {{ category.name }}</a></h5>
+                <p class="card-text">{{ category.description }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+      </main>
+    </div>
+  </div>
+{% endblock %}

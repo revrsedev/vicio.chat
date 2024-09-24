@@ -1,0 +1,38 @@
+{% load static %}
+<div class="wrapper" id="wrapper-footer-full">
+    <div class="container" id="footer-full-content" tabindex="-1">
+        <div class="row">
+            <div class="col-sm-3">
+                <h5>Top canales</h5>
+                <ul class="fa-ul">
+                    {% for top_channel in top_channels %}
+                    <li><span class="fa-li"><i class="fab fa-slack-hash"></i></span><a href="{{ top_channel.url }}">{{ top_channel.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h5>Últimos canales</h5>
+                <ul class="fa-ul">
+                    {% for recent_channel in recent_channels %}
+                    <li><span class="fa-li"><i class="fab fa-slack-hash"></i></span><a href="{{ recent_channel.url }}">{{ recent_channel.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h5>Corporativo</h5>
+                <ul class="fa-ul">
+                    <li><span class="fa-li"><i class=""></i></span><a href="/historia/">Historia</a></li>
+                    <li><span class="fa-li"><i class=""></i></span><a href="/equipo/">Equipo</a></li>
+                    <li><span class="fa-li"><i class=""></i></span><a href="/auth/register/">Registro</a></li>
+                    <li><span class="fa-li"><i class=""></i></span><a href="/crea-tu-chat/">Crea tu chat</a></li>
+                    <li><span class="fa-li"><i class=""></i></span><a href="/contacto/">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h5>Legal</h5>
+                <ul class="fa-ul">
+                    <li><span class="fa-li"><i class=""></i></span><a href="/legal/aviso-legal/">Aviso legal</a></li>
+                    <li><span class="fa-li"><i class=""></i></span><a href="/legal/politica-de-privacidad/">Política de privacidad</a></li>
+                    <li><span class="fa-li"><i class=""></i></span><a href="/politica-de-cookies/">Política de cookies</a></li>
+                </ul>
+            </div>

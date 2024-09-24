@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /authapp/
+Disallow: /unrealircd_rpc/
+
+Sitemap: https://chateagratis.chat/sitemap.xml

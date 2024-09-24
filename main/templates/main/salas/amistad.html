@@ -1,0 +1,189 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<div class="wrapper" id="single-wrapper">
+    <div class="container" id="content" tabindex="-1">
+        <div class="row">
+            <main class="site-main col-sm-8" id="main">
+                <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+                    <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <a itemprop="item" href="{% url 'home' %}">
+                            <span itemprop="name">Inicio</span>
+                        </a>
+                        <meta itemprop="position" content="1" />
+                    </span>
+                    &nbsp / &nbsp;
+                    <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <a itemprop="item" href="#">
+                            <span itemprop="name">Ocio</span>
+                        </a>
+                        <meta itemprop="position" content="2" />
+                    </span>
+                    &nbsp / &nbsp;
+                    <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <a itemprop="item" href="#">
+                            <span itemprop="name">Amistad</span>
+                        </a>
+                        <meta itemprop="position" content="3" />
+                    </span>
+                    &nbsp / &nbsp;
+                    <span class="current">Amistad</span>
+                </div>
+                <article class="chat type-chat chats-amistad" id="chat-8825">
+                    <header class="entry-header">
+                        <div class="row">
+                            <div class="col-12 col-sm-3 d-none d-sm-block">
+                                <img height="170" class="img-fluid img-chat" src="{% static 'images/salas/amigos.jpg' %}" alt="Amistad">
+                            </div>
+                            <div class="col-12 col-sm-9">
+                                <h1 class="entry-title">Chat Amistad</h1>
+                                Chat de amigos gratuito, chat español de amistad, conoce gente nueva y haz amigos en esta fabulosa red de chat totalmente gratis.
+                            </div>
+                        </div>
+                    </header>
+                    <div class="entry-content mt-4">
+                        <div class="panel panel-chat">
+                            <div class="card-header">
+                                <i class="fab fa-slack-hash"></i> Amistad
+                            </div>
+                            <div class="card-body">
+                                <form method="POST" action="{% url 'opciones' %}">
+                                    {% csrf_token %}
+                                    <div class="form-group bmd-label-static">
+                                        <label for="nick">Ingresa tu nick:</label>
+                                        <input type="text" class="form-control" id="nick" name="nick" placeholder="">
+                                        <small class="form-text text-muted">Si tiene el nick registrado el sistema le solicitará la contraseña al conectar.</small>
+                                    </div>
+                                    <input type="hidden" name="join" id="join" value="#matojeando,#amistad">
+                                    <button type="submit" class="btn btn-success btn-lg btn-block active">
+                                        <i class="far fa-comments"></i> Chatear ya!
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            
+                        </div>
+                        <hr class="mb-4">
+                        <h2>Descripción de la sala Amistad</h2>
+                        <p>Chat de amigos gratuito, chat español de amistad, conoce gente nueva y haz amigos en esta fabulosa red de chat totalmente gratis.</p>
+                        <hr class="mt-4">
+                    </div>
+                    <footer class="entry-footer">
+                        <h3 class="mb-3">Salas relacionadas:</h3>
+                        <div class="row">
+                            <div class="col-6 col-sm-4">
+                                <p class="text-ellipsis"><a href="#"><i class="fab fa-slack-hash"></i> Tucumano</a></p>
+                            </div>
+                            <div class="col-6 col-sm-4">
+                                <p class="text-ellipsis"><a href="#"><i class="fab fa-slack-hash"></i> Chatear</a></p>
+                            </div>
+                            <div class="col-6 col-sm-4">
+                                <p class="text-ellipsis"><a href="#"><i class="fab fa-slack-hash"></i> Parejas Perfectas</a></p>
+                            </div>
+                            <div class="col-6 col-sm-4">
+                                <p class="text-ellipsis"><a href="#"><i class="fab fa-slack-hash"></i> Filipinas</a></p>
+                            </div>
+                            <div class="col-6 col-sm-4">
+                                <p class="text-ellipsis"><a href="#"><i class="fab fa-slack-hash"></i> Flash</a></p>
+                            </div>
+                            <div class="col-6 col-sm-4">
+                                <p class="text-ellipsis"><a href="#"><i class="fab fa-slack-hash"></i> Geomundos</a></p>
+                            </div>
+                            <div class="col-6 col-sm-4">
+                                <p class="text-ellipsis"><a href="#"><i class="fab fa-slack-hash"></i> Tapatios</a></p>
+                            </div>
+                            <div class="col-6 col-sm-4">
+                                <p class="text-ellipsis"><a href="#"><i class="fab fa-slack-hash"></i> Templados</a></p>
+                            </div>
+                            <div class="col-6 col-sm-4">
+                                <p class="text-ellipsis"><a href="#"><i class="fab fa-slack-hash"></i> Amigas</a></p>
+                            </div>
+                            <div class="col-6 col-sm-4">
+                                <p class="text-ellipsis"><a href="#"><i class="fab fa-slack-hash"></i> Colegas</a></p>
+                            </div>
+                            <div class="col-6 col-sm-4">
+                                <p class="text-ellipsis"><a href="#"><i class="fab fa-slack-hash"></i> Gitanos</a></p>
+                            </div>
+                            <div class="col-6 col-sm-4">
+                                <p class="text-ellipsis"><a href="#"><i class="fab fa-slack-hash"></i> Cam</a></p>
+                            </div>
+                        </div>
+                    </footer>
+                </article>
+                <div id="accordion" style="margin-top:25px;">
+                    <div class="panel">
+                        <div class="card-header" id="heading1">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                                    <i class="far fa-file"></i> Normas de nuestro chat
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordion">
+                            <div class="card-body">
+                                <ul>
+                                    <li>La primera regla, absolutamente básica, es: «no hagas nada que no quieras que te hagan».</li>
+                                    <li>Está prohibido molestar al resto de los usuarios, o comprometer y degradar el funcionamiento de la red. Una actuación lo bastante persistente o molesta puede acarrear la expulsión de la red por tiempo indefinido.</li>
+                                    <li>Cuando entres en un canal nuevo sigue durante un rato las conversaciones para descubrir cuál es la temática que se está desarrollando. Respeta la temática del canal y utiliza un lenguaje apropiado. Las conversaciones con temáticas no vinculadas al canal deben mantenerse en privado.</li>
+                                    <li>Evita el uso de mayúsculas, por el simple hecho que es molestoso.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="card-header" id="heading2">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                    <i class="far fa-question-circle"></i> Preguntas frecuentes
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordion">
+                            <div class="card-body">
+                                <ul>
+                                    <li>Netiqueta y comportamiento</li>
+                                    <li>Normas generales de la Red</li>
+                                    <li>Normas de registro de Nicks</li>
+                                    <li>Normas de registro de Canales</li>
+                                    <li>Moderadores de canales</li>
+                                    <li>¿Como dirigirse a un OPeRador?</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mt-3">
+                    <center>
+                        <div data-aaad='true' data-aa-adunit='/22181265/CHZ_A_300v_1'></div>
+                        <div data-aaad='true' data-aa-adunit='/22181265/CHZ_MOB_320v_1'></div>
+                        <div data-aaad='true' data-aa-adunit='/22181265/CHZ_A_Stickyfooter'></div>
+                        <div data-aaad='true' data-aa-adunit='/22181265/CHZ_MOB_Stickyfooter'></div>
+                    </center>
+                </div>
+            </main>
+            <div class="col-md-4 widget-area" id="right-sidebar" role="complementary">
+                <aside id="wpchat_publicidad-3" class="widget widget_wpchat_publicidad">
+                    <center>
+                        <div data-aaad='true' data-aa-adunit='/22181265/CHZ_A_300v_1'></div>
+                        <div data-aaad='true' data-aa-adunit='/22181265/CHZ_MOB_320v_1'></div>
+                        <div data-aaad='true' data-aa-adunit='/22181265/CHZ_A_Stickyfooter'></div>
+                        <div data-aaad='true' data-aa-adunit='/22181265/CHZ_MOB_Stickyfooter'></div>
+                    </center>
+                </aside>
+                <aside id="text-2" class="widget widget_text">
+                    <h3 class="widget-title">Salas recomendadas</h3>
+                    <div class="textwidget">
+                        <ul>
+                            <li><a href="https://www.chateagratis.chat/salas/amor/">Amor</a></li>
+                            <li><a href="https://www.chateagratis.chat/salas/mas-de-40/">Más de 40</a></li>
+                            <li><a href="https://www.chateagratis.chat/salas/ligar/">Ligar</a></li>
+                            <!--<li><a href="https://www.chateagratis.chat/chat/camara/">Cámara</a></li>-->
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

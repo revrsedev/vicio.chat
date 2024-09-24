@@ -1,0 +1,29 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Opciones</h2>
+    <form method="post" action="{% url 'opciones' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="nick">Nickname</label>
+            <input type="text" class="form-control" id="nick" name="nick" value="{{ nick }}" required>
+        </div>
+
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" value="true" id="show_password" name="show_password" {% if show_password == 'true' %}checked{% endif %}>
+            <label class="form-check-label" for="show_password">
+                Tengo contraseña
+            </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+
+    <hr>
+
+    <h3 class="text-center">Opciones Guardadas</h3>
+    <p><strong>Nickname:</strong> {{ nick }}</p>
+    <p><strong>Mostrar contraseña:</strong> {{ show_password|yesno:"Sí,No" }}</p>
+</div>
+{% endblock %}

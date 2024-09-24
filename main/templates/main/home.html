@@ -1,0 +1,110 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="container-fluid wpchat-frontpage-hero">
+    <div class="container">
+        <h1 class="text-center mb-4"><i class="fab fa-slack-hash"></i> Conéctate a {{ chat_branding }}</h1>
+        <div class="mb-4 text-center">
+            <form action="/opcion/" method="POST" style="text-align: center;">
+                <div class="col-lg-12">
+                    <input class="form-input front-input" type="text" name="nick" placeholder="Escribe tu nick" autocomplete="off">
+                    <input type="hidden" name="join" value="#chat,#amistad">
+                    <button class="btn front-btn"><i class="far fa-comments"></i> Chatea Ya!</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<main class="container">
+    <!-- Salas de chat sugeridas -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <h2 class="text-center">Salas de chat sugeridas</h2>
+        </div>
+        {% for room in recommended_chat_rooms %}
+        <div class="col-6 col-sm-3">
+            <div class="card">
+                <a href="{{ room.get_absolute_url }}">
+                    <img src="{{ room.image.url }}" class="card-img-top" alt="{{ room.name }}">
+                </a>
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <a href="{{ room.link }}"><i class="fab fa-slack-hash"></i> {{ room.name }}</a>
+                    </h3>
+                    <p class="card-text">{{ room.description }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Categorías importantes -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3 class="text-center">Categorías importantes</h3>
+        </div>
+        {% for category in home_categories %}
+        <div class="col-6 col-sm-3">
+            <div class="card">
+                <a href="{{ category.get_absolute_url }}">
+                    <img src="{{ category.image.url }}" class="card-img-top" alt="{{ category.name }}">
+                </a>
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <a href="{{ category.link }}"><i class="fas fa-folder-open"></i> {{ category.name }}</a>
+                    </h3>
+                    <p class="card-text">{{ category.description }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Noticias de la web -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3 class="text-center">Noticias de la Red</h3>
+        </div>
+        {% for post in latest_posts %}
+        <div class="col-6 col-sm-3">
+            <div class="card">
+                <a href="{{ post.get_absolute_url }}">
+                    <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+                </a>
+                <div class="card-body">
+                    <p>{{ post.published_date|date:"d/m/Y" }}</p>
+                    <h4 class="card-title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3 class="text-center">Noticias del Mundo</h3>
+        </div>
+        {% for article in news_articles %}
+        <div class="col-6 col-sm-3">
+            <div class="card">
+                <a href="{{ article.url }}" target="_blank">
+                    {% if article.image %}
+                    <img src="{% static 'images/default-image.jpg' %}" class="card-img-top" alt="{{ article.title }}">
+                    {% else %}
+                    <img src="{% static 'images/default-image.jpg' %}" class="card-img-top" alt="Default Image">
+                    {% endif %}
+                </a>
+                <div class="card-body">
+                    <p>{{ article.published | date:"d/m/Y" }}</p>
+                    <h4 class="card-title">
+                        <a href="{{ article.url }}" target="_blank">{{ article.title|slice:":100" }}{% if article.title|length > 50 %}...{% endif %}</a>
+                    </h4>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>    
+</main>
+{% endblock %}
